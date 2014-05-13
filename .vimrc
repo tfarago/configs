@@ -44,7 +44,7 @@ set hlsearch
 set wrapscan
 set incsearch
 
-set textwidth=100   " Allow a bit more than the classic 80
+set textwidth=80    " The standard drill
 set autoindent      " ...
 set smartindent     " ...
 set tabstop=4       " Number of spaces per tab
