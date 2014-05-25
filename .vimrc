@@ -46,7 +46,6 @@ set incsearch
 
 set textwidth=80    " The standard drill
 set autoindent      " ...
-set smartindent     " ...
 set tabstop=4       " Number of spaces per tab
 set shiftwidth=4    " Default number of spaces for >> and <<
 set softtabstop=4   " Number of spaces per tab
@@ -54,6 +53,8 @@ set expandtab       " Spaces instead of tabs
 set smarttab        " Add/remove spaces instead of tabs
 set linebreak       " Break lines nicer
 set number          " Show line numbers
+set backspace=indent,eol,start
+set nostartofline
 
 syntax on
 
