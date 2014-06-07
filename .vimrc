@@ -40,9 +40,12 @@ set pastetoggle=<F2>
 
 set ignorecase
 set smartcase
+
+" Search related
 set hlsearch
 set wrapscan
 set incsearch
+nnoremap <silent><C-l> :<C-u>nohlsearch<CR><C-l>
 
 set textwidth=80    " The standard drill
 set autoindent      " ...
