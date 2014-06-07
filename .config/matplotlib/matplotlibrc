@@ -29,7 +29,7 @@ patch.facecolor        : 348ABD     # blue
 patch.edgecolor        : eeeeee
 #}}}
 #{{{ Font
-font.size           : 10.0
+font.size           : 12.0
 font.family         : sans-serif   # serif | sans-serif | cursive | fantasy | monospace
 font.sans-serif     : PT Sans, Droid Sans, sans-serif
 #font.style          : normal       # normal | italic | oblique
