@@ -64,7 +64,7 @@ axes.facecolor      : ffffff   # axes background color
 axes.edgecolor      : bcbcbc   # axes edge color
 axes.color_cycle    : 348ABD, 7A68A6, A60628, 467821, CF4457, 188487, E24A33
 axes.linewidth      : 1.0      # edge linewidth
-axes.grid           : True     # display grid or not
+axes.grid           : False     # display grid or not
 axes.titlesize      : x-large  # fontsize of the axes title
 axes.labelsize      : large    # fontsize of the x any y labels
 axes.labelcolor     : 555555
