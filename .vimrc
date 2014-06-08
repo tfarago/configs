@@ -19,7 +19,6 @@ NeoBundle 'wincent/Command-T'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'itchyny/lightline.vim' 
 
 " Required:
