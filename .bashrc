@@ -47,7 +47,8 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # some useful aliases
-alias off='sudo poweroff'
+# we have 2 seconds to change our mind
+alias off='sleep 2; dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop'
 alias cl='clear'
 alias g=git
 
