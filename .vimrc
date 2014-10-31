@@ -21,6 +21,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'itchyny/lightline.vim' 
 NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'petRUShka/vim-opencl'
 
 " Required:
 filetype plugin indent on
