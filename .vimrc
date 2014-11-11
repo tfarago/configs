@@ -114,3 +114,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Disable docstrings to pop-up
 set completeopt=menu
+
+" Useful mappings
+nnoremap <Right> :bn<CR>
+nnoremap <Left> :bp<CR>
