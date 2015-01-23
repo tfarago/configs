@@ -1,0 +1,99 @@
+#!/bin/bash
+
+CENV_BASE_DIR=${CENV_BASE_DIR:=$HOME/.local/share/cenv}
+
+
+function usage() {
+    echo "Usage: cenv [--show] [-e|--edit] [--remove] [-h] <envname>"
+}
+
+args=$(getopt -l "edit" -l "show" -l "remove" -o "e:h" -- "$@")
+eval set -- "$args"
+
+DO_EDIT=
+DO_SHOW=
+DO_REMOVE=
+
+while [ $# -ge 1 ]; do
+    case "$1" in
+        --)
+            shift
+            break
+            ;;
+        -e|--edit)
+            DO_EDIT=1
+            ;;
+        --show)
+            DO_SHOW=1
+            ;;
+        --remove)
+            DO_REMOVE=1
+            ;;
+        -h)
+            usage
+            exit 0
+            ;;
+    esac
+    shift
+done
+
+ENV=$*
+ENV_DIR=$CENV_BASE_DIR/$ENV
+LOCALRC=$ENV_DIR/localrc
+
+if [ ! -z "$DO_SHOW" ]; then
+    if [ -d $ENV_DIR ]; then
+        find $ENV_DIR -mindepth 1 -maxdepth 1 -type d -exec basename {} \;
+    fi
+    exit 0
+fi
+
+if [ -z "$ENV" ]; then
+    usage
+    exit 1
+fi
+
+# Create environment if not existing
+if [ ! -d "$ENV_DIR" ]; then
+    echo "Creating $ENV in $ENV_DIR ..."
+    mkdir -p $ENV_DIR
+fi
+
+if [ ! -z "$DO_REMOVE" ]; then
+    echo "Removing $ENV, deleting $ENV_DIR ..."
+    rm -rf $ENV_DIR
+    exit 0
+fi
+
+if [ ! -z "$DO_EDIT" ]; then
+    if [ ! -f "$LOCALRC" ]; then
+        cat > $LOCALRC << EOF
+# Use this file to add more environment variables, e.g.
+# export LV2PATH=\$CENV/lib/lv2
+EOF
+    fi
+
+    $EDITOR $LOCALRC
+
+    exit 0
+fi
+
+if [ -z "$DO_EDIT" ]; then
+    export CENV=$ENV_DIR
+    export PATH=$ENV_DIR/bin:$PATH
+    export LD_LIBRARY_PATH=$ENV_DIR/lib:$LD_LIBRARY_PATH
+    export PKG_CONFIG_PATH=$ENV_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
+    export GI_TYPELIB_PATH=$ENV_DIR/lib/girepository-1.0:$GI_TYPELIB_PATH
+
+    if [ -z "$VIRTUAL_ENV" ]; then
+        export VIRTUAL_ENV="$ENV"
+    else
+        export VIRTUAL_ENV="$VIRTUAL_ENV:$ENV"
+    fi
+
+    if [ -f "$LOCALRC" ]; then
+        source $LOCALRC
+    fi
+
+    bash
+fi
