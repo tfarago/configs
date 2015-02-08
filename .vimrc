@@ -70,6 +70,9 @@ if !has('gui_running')
 endif
 
 colorscheme mustang
+" Highlight current line decently
+hi CursorLine ctermbg=234 cterm=NONE
+set cursorline
 
 " Lightline
 set laststatus=2
