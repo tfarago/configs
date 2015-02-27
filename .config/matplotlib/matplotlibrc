@@ -129,7 +129,7 @@ image.interpolation : nearest # see help(imshow) for options
 #image.aspect        : equal             # equal | auto | a number
 image.cmap          : gray               # gray | jet etc...
 #image.lut           : 256               # the size of the colormap lookup table
-image.origin        : lower             # lower | upper
+image.origin        : upper             # lower | upper
 #image.resample      : False
 #}}}
 #{{{ Contour
