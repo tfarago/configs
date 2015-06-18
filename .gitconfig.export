@@ -11,5 +11,7 @@
     b = branch
     s = status
     l = log
+    c = commit
+    d = diff
 [push]
     default = current
