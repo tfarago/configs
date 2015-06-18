@@ -62,7 +62,7 @@ font.sans-serif     : PT Sans, Droid Sans, sans-serif
 #{{{ Axes
 axes.facecolor      : ffffff   # axes background color
 axes.edgecolor      : bcbcbc   # axes edge color
-axes.color_cycle    : 348ABD, 7A68A6, A60628, 467821, CF4457, 188487, E24A33
+axes.color_cycle    : 377EB8, E41A1C, 4DAF4A, 984EA3, FF7F00, FFFF33, A65628, F781BF, 999999
 axes.linewidth      : 1.0      # edge linewidth
 axes.grid           : False     # display grid or not
 axes.titlesize      : x-large  # fontsize of the axes title
