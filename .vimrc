@@ -1,6 +1,7 @@
 if has('vim_starting')
   set nocompatible               " Be iMproved
 
+"NeoBundle{{{1
   " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -11,7 +12,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
-
+"Bundles{{{2
 " My Bundles here:
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'Shougo/neocomplcache'
@@ -23,7 +24,7 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'petRUShka/vim-opencl'
 NeoBundle 'tpope/vim-surround'
-
+"}}}2
 call neobundle#end()
 
 " Required:
@@ -32,7 +33,9 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+"}}}1
 
+"Editor{{{
 map ' :
 set showmatch
 set ruler
@@ -68,7 +71,9 @@ syntax on
 if !has('gui_running')
   set t_Co=256
 endif
+"}}}
 
+"Colors{{{
 colorscheme mustang
 " Highlight current line decently
 hi CursorLine ctermbg=234 cterm=NONE
@@ -76,8 +81,9 @@ set cursorline
 
 " Lightline
 set laststatus=2
+"}}}
 
-" Completion
+"Completion{{{
 " Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -119,10 +125,14 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Disable docstrings to pop-up
 set completeopt=menu
+"}}}
 
-" Useful mappings
+"Useful mappings{{{
 nnoremap <Right> :bn<CR>
 nnoremap <Left> :bp<CR>
+"}}}
 
+"Folding{{{
 set foldmethod=marker
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+"}}}
