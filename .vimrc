@@ -123,3 +123,6 @@ set completeopt=menu
 " Useful mappings
 nnoremap <Right> :bn<CR>
 nnoremap <Left> :bp<CR>
+
+set foldmethod=marker
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
