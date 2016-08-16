@@ -130,6 +130,7 @@ set completeopt=menu
 "Useful mappings{{{
 nnoremap <Right> :bn<CR>
 nnoremap <Left> :bp<CR>
+nnoremap <F5> <Esc>:w!<CR>:make!<CR><CR>
 "}}}
 
 "Folding{{{
