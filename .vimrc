@@ -131,6 +131,11 @@ set completeopt=menu
 nnoremap <Right> :bn<CR>
 nnoremap <Left> :bp<CR>
 nnoremap <F5> <Esc>:w!<CR>:make!<CR><CR>
+let c = 1
+while c <= 9
+    execute "nnoremap <Leader>" . c . " :" . c . "b<CR>"
+    let c += 1
+endwhile
 "}}}
 
 "Folding{{{
