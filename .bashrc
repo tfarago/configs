@@ -51,6 +51,7 @@ alias l='ls -CF'
 alias off='sleep 2; systemctl poweroff'
 alias reboot='sleep 2; systemctl reboot'
 alias g=git
+alias vi=vim
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
