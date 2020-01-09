@@ -48,8 +48,8 @@ alias l='ls -CF'
 
 # some useful aliases
 # we have 2 seconds to change our mind
-alias off='sleep 2; dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop'
-alias reboot='sleep 2; dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart'
+alias off='sleep 2; systemctl poweroff'
+alias reboot='sleep 2; systemctl reboot'
 alias g=git
 
 # Add an "alert" alias for long running commands.  Use like so:
