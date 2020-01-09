@@ -94,7 +94,7 @@ function _prompt_workingdir () {
 
 function _git_prompt() {
     local git_status="`git status --porcelain 2>&1`"
-    if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+    if ! [[ "$git_status" =~ "fatal: not a git repository" ]]; then
         if [ -z "$git_status" ]; then
             local ansi=42
         elif [[ "$git_status" == *" M "* ]]; then
