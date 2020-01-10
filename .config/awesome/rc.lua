@@ -353,7 +353,7 @@ globalkeys = gears.table.join(
     -- Custom
     awful.key({ modkey, "Shift" }, "w", function () awful.util.spawn("firefox") end),
     awful.key({ modkey, "Shift" }, "m", function () awful.util.spawn("thunderbird") end),
-    awful.key({                 }, "F12", function () awful.util.spawn("xtrlock -b") end)
+    awful.key({ modkey          }, "F12", function () awful.util.spawn("xtrlock -b") end)
 )
 
 clientkeys = gears.table.join(
