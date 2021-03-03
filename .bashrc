@@ -32,6 +32,10 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+if [ -d "$HOME/.local/bin" ] ; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -52,6 +56,7 @@ alias off='sleep 2; systemctl poweroff'
 alias reboot='sleep 2; systemctl reboot'
 alias g=git
 alias vi=vim
+alias ipython=ipython3
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -128,3 +133,7 @@ PROMPT_COMMAND=_prompt_command
 TERM=xterm-256color
 export EDITOR=vim
 export WORKON_HOME=~/virtenvs
+
+if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+fi
