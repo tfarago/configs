@@ -1,38 +1,30 @@
 if has('vim_starting')
   set nocompatible               " Be iMproved
-
-"NeoBundle{{{1
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+"Plugin system{{{1
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-"Bundles{{{2
-" My Bundles here:
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'wincent/Command-T'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'itchyny/lightline.vim' 
-NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'petRUShka/vim-opencl'
-NeoBundle 'tpope/vim-surround'
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+"Plugins{{{2
+call plug#begin('~/.vim/plugged')
+Plug 'tomtom/tcomment_vim'
+Plug 'Shougo/neocomplcache'
+Plug 'wincent/Command-T'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'tpope/vim-fugitive'
+Plug 'flazz/vim-colorschemes'
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'davidhalter/jedi-vim'
+Plug 'petRUShka/vim-opencl'
+Plug 'tpope/vim-surround'
+"Plug 'Valloric/YouCompleteMe'
+call plug#end()
 "}}}2
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
 "}}}1
 
 "Editor{{{
