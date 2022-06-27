@@ -82,54 +82,6 @@ fi
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
-# --- enhance prompt ----------------------------------------------------------
-function _prompt_workingdir () {
-    local pwdmaxlen=$(($COLUMNS/5))
-    local trunc_symbol="..."
-    if [[ $PWD == $HOME* ]]; then
-        newPWD="~${PWD#$HOME}" 
-    else
-        newPWD=${PWD}
-    fi
-    if [ ${#newPWD} -gt $pwdmaxlen ]; then
-        local pwdoffset=$(( ${#newPWD} - $pwdmaxlen + 3 ))
-        newPWD="${trunc_symbol}${newPWD:$pwdoffset:$pwdmaxlen}"
-    fi
-    echo $newPWD
-}
-
-function _git_prompt() {
-    local git_status="`git status --porcelain 2>&1`"
-    if ! [[ "$git_status" =~ "fatal: not a git repository" ]]; then
-        if [ -z "$git_status" ]; then
-            local ansi=42
-        elif [[ "$git_status" == *" M "* ]]; then
-            local ansi=45
-        else
-            local ansi=43
-        fi
-
-        local branch=$(__git_ps1 "%s")
-
-        echo -n '\[\e[0;37;'"$ansi"';1m\]'"$branch"'\[\e[0m\] '
-    fi
-}
-
-function _colored_host() {
-    echo "\[\033[0;33m\]\h\[\033[0m\]"
-}
-
-function _prompt_command() {
-    if test -z "$VIRTUAL_ENV" ; then
-        PYTHON_VIRTUALENV=""
-    else
-        PYTHON_VIRTUALENV="${YELLOW}⚒ `basename \"$VIRTUAL_ENV\"`${COLOR_NONE} "
-    fi
-
-    PS1="`_git_prompt`${PYTHON_VIRTUALENV}"'\[\033[0;33m\]\u\[\033[0m\]@\h:\[\033[0;33m\]$(_prompt_workingdir)\[\033[0m\] '
-}
-
-PROMPT_COMMAND=_prompt_command
 TERM=xterm-256color
 export EDITOR=vim
 export WORKON_HOME=~/virtenvs
@@ -137,3 +89,10 @@ export WORKON_HOME=~/virtenvs
 if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
     source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 fi
+
+# Powerline ----------------------------------------------------------
+export POWERLINE_LOCATION=$(pip show powerline-status | grep Location | sed 's/Location: //')
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+powerline-daemon -q
+. $POWERLINE_LOCATION/powerline/bindings/bash/powerline.sh
