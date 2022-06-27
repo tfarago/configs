@@ -13,16 +13,13 @@ endif
 "Plugins{{{2
 call plug#begin('~/.vim/plugged')
 Plug 'tomtom/tcomment_vim'
-Plug 'Shougo/neocomplcache'
 Plug 'wincent/Command-T'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'flazz/vim-colorschemes'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plug 'davidhalter/jedi-vim'
-Plug 'petRUShka/vim-opencl'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-surround'
-"Plug 'Valloric/YouCompleteMe'
 call plug#end()
 "}}}2
 "}}}1
@@ -77,47 +74,8 @@ set laststatus=2
 "}}}
 
 "Completion{{{
-" Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplcache_disable_auto_complete = 1
-
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-" Use CTRL-space to popup completion menu 
-inoremap <expr><Nul>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Disable docstrings to pop-up
-set completeopt=menu
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoTo<CR>
 "}}}
 
 "Useful mappings{{{
