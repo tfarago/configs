@@ -95,3 +95,6 @@ POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 powerline-daemon -q
 [ -f "$HOME/.powerline_path" ] && source "$HOME/.powerline_path"
+
+# zoxide ----------------------------------------------------------
+eval "$(zoxide init bash)"
