@@ -91,8 +91,7 @@ if [ -f /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
 fi
 
 # Powerline ----------------------------------------------------------
-export POWERLINE_LOCATION=$(pip show powerline-status | grep Location | sed 's/Location: //')
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 powerline-daemon -q
-. $POWERLINE_LOCATION/powerline/bindings/bash/powerline.sh
+[ -f "$HOME/.powerline_path" ] && source "$HOME/.powerline_path"
