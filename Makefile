@@ -106,8 +106,8 @@ import :
 
 .PHONY : uninstall
 uninstall :
-	@rm $(patsubst %,\"%\",$(export_dst))
-	@rm $(patsubst %,\"%\",$(explicit_export_dst))
+	@rm $(patsubst %,"%",$(export_dst))
+	@rm $(patsubst %,"%",$(explicit_export_dst))
 
 .PHONY : update
 update :
