@@ -20,6 +20,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-surround'
+Plug 'nanotee/zoxide.vim'
 call plug#end()
 "}}}2
 "}}}1
