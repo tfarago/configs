@@ -21,6 +21,7 @@ Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-surround'
 Plug 'nanotee/zoxide.vim'
+Plug '~/dev/fzf'
 call plug#end()
 "}}}2
 "}}}1
@@ -77,6 +78,9 @@ set laststatus=2
 "Completion{{{
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoTo<CR>
+map <leader>f  :FZF --reverse<CR>
+" As of July 2022, for some reason using fzf changes the cursor to block, this prevents it in both vim and bash after vim exits
+autocmd VimEnter * silent !echo -ne "\e[5 q"
 "}}}
 
 "Useful mappings{{{
