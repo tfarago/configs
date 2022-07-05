@@ -88,6 +88,8 @@ autocmd VimEnter * silent !echo -ne "\e[5 q"
 "Useful mappings{{{
 nnoremap <Right> :bn<CR>
 nnoremap <Left> :bp<CR>
+nnoremap <Up> :e #<CR>
+nnoremap <Down> :e #<CR>
 nnoremap <F5> <Esc>:w!<CR>:make!<CR><CR>
 let c = 1
 while c <= 9
