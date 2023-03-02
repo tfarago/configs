@@ -60,9 +60,10 @@ font.size           : 12.0
 #mathtext.default    : it # The default font to use for math.
 #}}}
 #{{{ Axes
-axes.facecolor      : ffffff   # axes background color
-axes.edgecolor      : bcbcbc   # axes edge color
-axes.prop_cycle     : cycler('color', ['377EB8', 'E41A1C', '4DAF4A', '984EA3', 'FF7F00', 'FFFF33', 'A65628', 'F781BF', '999999'])
+axes.facecolor      : F1F1F1   # axes background color
+axes.edgecolor      : white   # axes edge color
+axes.prop_cycle     : cycler('color', ['348ABD', 'E24A33', '4DAF4A', '988ED5', 'FF7F00', 'FBC15E', 'B0724F', 'FFB5B8', '999999'])
+                                # blue, red, green , purple, orange, yellow, brown, pink, gray
 axes.linewidth      : 1.0      # edge linewidth
 axes.grid           : False     # display grid or not
 axes.titlesize      : x-large  # fontsize of the axes title
@@ -81,7 +82,7 @@ xtick.minor.size    : 0      # minor tick size in points
 xtick.major.pad     : 6      # distance to major tick label in points
 xtick.minor.pad     : 6      # distance to the minor tick label in points
 xtick.color         : 555555      # color of the tick labels
-xtick.direction     : in     # direction: in or out
+xtick.direction     : out     # direction: in or out
 #xtick.labelsize      : medium # fontsize of the tick labels
 
 ytick.major.size    : 0      # major tick size in points
@@ -89,12 +90,12 @@ ytick.minor.size    : 0      # minor tick size in points
 ytick.major.pad     : 6      # distance to major tick label in points
 ytick.minor.pad     : 6      # distance to the minor tick label in points
 ytick.color         : 555555      # color of the tick labels
-ytick.direction     : in     # direction: in or out
+ytick.direction     : out     # direction: in or out
 #ytick.labelsize      : medium # fontsize of the tick labels
 #}}}
 #{{{ Grid
-#grid.color          :   black   # grid color
-#grid.linestyle      :   :       # dotted
+grid.color          : white   # grid color
+grid.linestyle      : -
 #grid.linewidth      :   0.5     # in points
 #}}}
 #{{{ Legend
@@ -113,7 +114,7 @@ legend.fancybox     : False # if True, use a rounded box for the legend, else a 
 #}}}
 #{{{ Figure
 figure.figsize      : 11, 8     # figure size in inches
-figure.facecolor    : 0.85      # figure facecolor; 0.75 is scalar gray
+figure.facecolor    : white      # figure facecolor; 0.75 is scalar gray
 figure.edgecolor    : 0.50      # figure edgecolor
 #figure.dpi          : 80       # figure dots per inch
 
