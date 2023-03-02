@@ -60,8 +60,8 @@ font.size           : 12.0
 #mathtext.default    : it # The default font to use for math.
 #}}}
 #{{{ Axes
-axes.facecolor      : F1F1F1   # axes background color
-axes.edgecolor      : white   # axes edge color
+axes.facecolor      : ffffff   # axes background color
+axes.edgecolor      : 0.85   # axes edge color
 axes.prop_cycle     : cycler('color', ['348ABD', 'E24A33', '4DAF4A', '988ED5', 'FF7F00', 'FBC15E', 'B0724F', 'FFB5B8', '999999'])
                                 # blue, red, green , purple, orange, yellow, brown, pink, gray
 axes.linewidth      : 1.0      # edge linewidth
@@ -94,7 +94,7 @@ ytick.direction     : out     # direction: in or out
 #ytick.labelsize      : medium # fontsize of the tick labels
 #}}}
 #{{{ Grid
-grid.color          : white   # grid color
+grid.color          : 0.85   # grid color
 grid.linestyle      : -
 #grid.linewidth      :   0.5     # in points
 #}}}
@@ -114,7 +114,7 @@ legend.fancybox     : False # if True, use a rounded box for the legend, else a 
 #}}}
 #{{{ Figure
 figure.figsize      : 11, 8     # figure size in inches
-figure.facecolor    : white      # figure facecolor; 0.75 is scalar gray
+figure.facecolor    : 0.85      # figure facecolor; 0.75 is scalar gray
 figure.edgecolor    : 0.50      # figure edgecolor
 #figure.dpi          : 80       # figure dots per inch
 
